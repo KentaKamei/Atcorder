@@ -14,7 +14,7 @@ for j in range(D):
         if S[k][j] != S[k + 1][j]:
             break
         else:
-            if k == N - 1 :
+            if k == N - 2 :
                 if c == 0:
                     c += 1
                     t = j
