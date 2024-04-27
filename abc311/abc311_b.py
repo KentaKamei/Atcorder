@@ -1,43 +1,24 @@
-N, D = map(int,input().split())
-#print(N, D)
-S = []
-for i in range(N):
-    s = input()
-    s2 = list(s)
-    S.append(s2)
-    #print(S)
-c = 0
-t = 0
-u = 0
-for j in range(D):
-    for k in range(N - 1):
-        if S[k][j] != S[k + 1][j]:
-            break
-        else:
-            if S[k][j] == "o":
-                if k == N - 2 :
-                    if c == 0:
-                        c += 1
-                        t = j
-                    else:
-                        if j - t == 1:
-                            c += 1
-                            t = j
-                        else:
-                            if u == 0:
-                                u = c
-                                c = 1
-                                t = j
-                            else:
-                                if u >= c:
-                                    c = 1
-                                    t = j
-                                else:
-                                    u = c
-                                    c = 1
-                                    t = j
-if u >= c:
-    print(u)
-else:
-    print(c)
+N, D = map(int, input().split())
+S = [input() for _ in range(N)]
 
+max_free_days = 0
+current_free_days = 0
+
+# 全ての日についてチェック
+for j in range(D):
+    # その日に全員が暇かどうかをチェック
+    all_free = True
+    for i in range(N):
+        if S[i][j] != 'o':
+            all_free = False
+            break
+    
+    # 全員が暇ならカウントを増やし、そうでなければカウントをリセット
+    if all_free:
+        current_free_days += 1
+        max_free_days = max(max_free_days, current_free_days)
+    else:
+        current_free_days = 0
+
+# 最大連続暇な日数を出力
+print(max_free_days)
