@@ -27,12 +27,15 @@ for j in range(D):
                             if u == 0:
                                 u = c
                                 c = 1
+                                t = j
                             else:
                                 if u >= c:
                                     c = 1
+                                    t = j
                                 else:
                                     u = c
                                     c = 1
+                                    t = j
 if u >= c:
     print(u)
 else:
