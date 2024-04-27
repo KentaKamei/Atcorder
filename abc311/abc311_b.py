@@ -14,24 +14,25 @@ for j in range(D):
         if S[k][j] != S[k + 1][j]:
             break
         else:
-            if k == N - 2 :
-                if c == 0:
-                    c += 1
-                    t = j
-                else:
-                    if j - t == 1:
+            if S[k][j] == "o":
+                if k == N - 2 :
+                    if c == 0:
                         c += 1
                         t = j
                     else:
-                        if u == 0:
-                            u = c
-                            c = 0
+                        if j - t == 1:
+                            c += 1
+                            t = j
                         else:
-                            if u >= c:
-                                c = 0
-                            else:
+                            if u == 0:
                                 u = c
                                 c = 0
+                            else:
+                                if u >= c:
+                                    c = 0
+                                else:
+                                    u = c
+                                    c = 0
 if u >= c:
     print(u)
 else:
