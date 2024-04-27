@@ -26,13 +26,13 @@ for j in range(D):
                         else:
                             if u == 0:
                                 u = c
-                                c = 0
+                                c = 1
                             else:
                                 if u >= c:
-                                    c = 0
+                                    c = 1
                                 else:
                                     u = c
-                                    c = 0
+                                    c = 1
 if u >= c:
     print(u)
 else:
